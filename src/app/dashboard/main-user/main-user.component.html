@@ -1,0 +1,44 @@
+<div class="container p-4 ">
+    <div class="row">
+      <div class="col-6">
+        <h2>User List</h2>
+      </div>
+      <div class="col-6 text-right pt-1">
+        <button class="btn btn-primary" [routerLink]="['/add-user']" routerLinkActive="router-link-active">Add
+          User</button>
+      </div>
+    </div>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Branch</th>
+          <th>Action</th>
+          
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let get of userListArray">
+          <td>{{get.name}}</td>
+          <td>{{get.email}}</td>
+          <td>{{get.dob}}</td>
+          <td><span *ngFor="let set of get.branch">{{set.area_code}} - {{set.contact_no}}<br/></span></td>
+  
+          <td><button class="btn btn-primary fa fa-edit m-1" [routerLink]="['/edit-user/', get.id]"></button>
+            <button class="btn btn-danger fa fa-trash m-1" (click)="deleteUser(get.id)"></button></td>
+        </tr>
+  
+      </tbody>
+      <tbody *ngIf="userListArray && userListArray.length == 0">
+        <tr>
+          <td>No Record Found</td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

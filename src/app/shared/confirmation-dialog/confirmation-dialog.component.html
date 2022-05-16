@@ -1,0 +1,7 @@
+<mat-dialog-content style="background-color: white;color: black;" class="mat-typography">
+    <h3>Are you sure you want to delete? Continuing will permanently delete this data.</h3> 
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button class="btn btn-secondary m-2" mat-dialog-close>Cancel</button>
+    <button class="btn btn-danger m-2" (click)="onClick()" cdkFocusInitial>Delete</button>
+  </mat-dialog-actions>
